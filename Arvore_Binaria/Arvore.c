@@ -78,43 +78,18 @@ void Remove(Arvore **raiz, int valor){
             Arvore *aux = (*raiz);
 
             if((*raiz)->esq && (*raiz)->dir){ // remove quando tem dois filhos
-                // aux = (*raiz)->esq;
-
-                // while(aux->dir) aux = aux->dir;
-                
-                // int valor_backup = aux->info.valor;
-                // aux->info.valor = (*raiz)->info.valor;
-                // (*raiz)->info.valor = valor_backup;
-
                 (*raiz) = rumo((*raiz), valor);
-                
                 Remove(&((*raiz)->esq), valor);
             }
             else if((*raiz)->esq || (*raiz)->dir){ // remove quando tem um filho
                 if((*raiz)->esq){
-                    // aux = (*raiz)->esq;
-
-                    // while(aux->dir) aux = aux->dir;
-                    
-                    // int valor_backup = aux->info.valor;
-                    // aux->info.valor = (*raiz)->info.valor;
-                    // (*raiz)->info.valor = valor_backup;
                     (*raiz) = rumo((*raiz), valor);
                     Remove(&((*raiz)->esq), valor);
                 }else{
-                    // aux = (*raiz)->dir;
-
-                    // while(aux->esq) aux = aux->esq;
-                    
-                    // int valor_backup = aux->info.valor;
-                    // aux->info.valor = (*raiz)->info.valor;
-                    // (*raiz)->info.valor = valor_backup;
-
                     (*raiz) = rumo((*raiz), valor);
-
                     Remove(&((*raiz)->dir), valor);
                 }
-            }else{
+            }else{ // libera a memória
                 free(*raiz);
                 *raiz = NULL;
             }
