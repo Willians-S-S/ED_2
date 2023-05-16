@@ -100,7 +100,7 @@ int main(){
     // ----------------------- Inserir pessoas -----------------------
     lista = inserir(lista, 7, "Setimo", 2000, 1.00);
     lista = inserir(lista, 2, "Segundo", 2000, 1.84);
-    lista = inserir(lista, 4, "Quarto", 2002, 1.84);
+    lista = inserir(lista, 4, "Quarto", 2000, 1.84);
     lista = inserir(lista, 3, "Terceiro", 2002, 2.00);
     lista = inserir(lista, 1, "Primeiro", 2002, 2.00);
     lista = inserir(lista, 5, "Quinto", 2002, 2.68);
@@ -111,6 +111,7 @@ int main(){
     int i = 0;
     nomes = (char**) malloc(1 * sizeof(char*));
     nomes[0] = (char*) malloc(20 * sizeof(char));
+
     printf("Maior idade: %d\n", maior_idade(lista, 0, nomes, &i));
     for(int j = 0; j < i; j++){
         printf("Nome: %s\n", nomes[j]);
@@ -130,7 +131,7 @@ int main(){
     // ----------------------- Numero de pessoas com menos de 40 e maior que a media -----------------------
     int qtd_maior_menor;
     menor_que_40_maior_que_a_media(lista, &qtd_maior_menor, media);
-    printf("\nQuantidade de pessoas com altura mediana %d\n", qtd_maior_menor);
+    printf("\nNumero de pessoas com menos de 40 e maior que a media %d\n", qtd_maior_menor);
 
     return 0;
 }
