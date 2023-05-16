@@ -50,43 +50,69 @@ void search(Arvore *raiz, int num, int *encontrou, Arvore **endereco){
     }
 }
 
+Arvore *rumo(Arvore *raiz, int valor){
+    if(raiz->esq){
+        Arvore *aux = raiz->esq;
+
+        while(aux->dir) aux = aux->dir;
+        
+        int valor_backup = aux->info.valor;
+        aux->info.valor = raiz->info.valor;
+        raiz->info.valor = valor_backup;
+    }else{
+        Arvore *aux = raiz->dir;
+
+        while(aux->esq) aux = aux->esq;
+        
+        int valor_backup = aux->info.valor;
+        aux->info.valor = raiz->info.valor;
+        raiz->info.valor = valor_backup;
+    }
+
+    return raiz;
+}
+
 void Remove(Arvore **raiz, int valor){
     if((*raiz)){
         if((*raiz)->info.valor == valor){
             Arvore *aux = (*raiz);
 
             if((*raiz)->esq && (*raiz)->dir){ // remove quando tem dois filhos
-                aux = (*raiz)->esq;
+                // aux = (*raiz)->esq;
 
-                while(aux->dir) aux = aux->dir;
+                // while(aux->dir) aux = aux->dir;
                 
-                int valor_backup = aux->info.valor;
-                aux->info.valor = (*raiz)->info.valor;
-                (*raiz)->info.valor = valor_backup;
+                // int valor_backup = aux->info.valor;
+                // aux->info.valor = (*raiz)->info.valor;
+                // (*raiz)->info.valor = valor_backup;
+
+                (*raiz) = rumo((*raiz), valor);
                 
                 Remove(&((*raiz)->esq), valor);
             }
             else if((*raiz)->esq || (*raiz)->dir){ // remove quando tem um filho
                 if((*raiz)->esq){
-                    aux = (*raiz)->esq;
+                    // aux = (*raiz)->esq;
 
-                    while(aux->dir) aux = aux->dir;
+                    // while(aux->dir) aux = aux->dir;
                     
-                    int valor_backup = aux->info.valor;
-                    aux->info.valor = (*raiz)->info.valor;
-                    (*raiz)->info.valor = valor_backup;
-
+                    // int valor_backup = aux->info.valor;
+                    // aux->info.valor = (*raiz)->info.valor;
+                    // (*raiz)->info.valor = valor_backup;
+                    (*raiz) = rumo((*raiz), valor);
                     Remove(&((*raiz)->esq), valor);
                 }else{
-                    aux = (*raiz)->dir;
+                    // aux = (*raiz)->dir;
 
-                    while(aux->esq) aux = aux->esq;
+                    // while(aux->esq) aux = aux->esq;
                     
-                    int valor_backup = aux->info.valor;
-                    aux->info.valor = (*raiz)->info.valor;
-                    (*raiz)->info.valor = valor_backup;
+                    // int valor_backup = aux->info.valor;
+                    // aux->info.valor = (*raiz)->info.valor;
+                    // (*raiz)->info.valor = valor_backup;
 
-                    Remove(&((*raiz)->esq), valor);
+                    (*raiz) = rumo((*raiz), valor);
+
+                    Remove(&((*raiz)->dir), valor);
                 }
             }else{
                 free(*raiz);
