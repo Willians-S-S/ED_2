@@ -50,26 +50,38 @@ void search(Arvore *raiz, int num, int *encontrou, Arvore **endereco){
     }
 }
 
-Arvore *rumo(Arvore *raiz, int valor){
-    if(raiz->esq){
-        Arvore *aux = raiz->esq;
+// Arvore *rumo(Arvore *raiz, int valor){
+//     if(raiz->esq){
+//         Arvore *aux = raiz->esq;
 
-        while(aux->dir) aux = aux->dir;
+//         while(aux->dir) aux = aux->dir;
         
-        int valor_backup = aux->info.valor;
-        aux->info.valor = raiz->info.valor;
-        raiz->info.valor = valor_backup;
-    }else{
-        Arvore *aux = raiz->dir;
+//         int valor_backup = aux->info.valor;
+//         aux->info.valor = raiz->info.valor;
+//         raiz->info.valor = valor_backup;
+//     }else{
+//         Arvore *aux = raiz->dir;
 
-        while(aux->esq) aux = aux->esq;
+//         while(aux->esq) aux = aux->esq;
         
-        int valor_backup = aux->info.valor;
-        aux->info.valor = raiz->info.valor;
-        raiz->info.valor = valor_backup;
-    }
+//         int valor_backup = aux->info.valor;
+//         aux->info.valor = raiz->info.valor;
+//         raiz->info.valor = valor_backup;
+//     }
 
-    return raiz;
+//     return raiz;
+// }
+
+void rumo_esq(Arvore *raiz){
+    Arvore *aux = raiz->esq;
+    while (aux->dir) aux = aux->dir;
+    aux->dir = raiz->dir;
+}
+
+void rumo_dir(Arvore *raiz){
+    Arvore *aux = raiz->dir;
+    while (aux->esq) aux = aux->esq;
+    aux->esq = raiz->esq;
 }
 
 void Remove(Arvore **raiz, int valor){
@@ -78,20 +90,20 @@ void Remove(Arvore **raiz, int valor){
             Arvore *aux = (*raiz);
 
             if((*raiz)->esq && (*raiz)->dir){ // remove quando tem dois filhos
-                (*raiz) = rumo((*raiz), valor);
-                Remove(&((*raiz)->esq), valor);
+                rumo_esq((*raiz));
+                (*raiz) = (*raiz)->esq; 
             }
             else if((*raiz)->esq || (*raiz)->dir){ // remove quando tem um filho
                 if((*raiz)->esq){
-                    (*raiz) = rumo((*raiz), valor);
-                    Remove(&((*raiz)->esq), valor);
+                    rumo_esq((*raiz));
+                    (*raiz) = (*raiz)->esq;
                 }else{
-                    (*raiz) = rumo((*raiz), valor);
-                    Remove(&((*raiz)->dir), valor);
+                    rumo_dir((*raiz));
+                    (*raiz) = (*raiz)->dir;
                 }
             }else{ // libera a memória
-                free(*raiz);
-                *raiz = NULL;
+                free(aux);
+                aux = NULL;
             }
 
         }else if(valor < (*raiz)->info.valor){
@@ -108,7 +120,7 @@ int main(void) {
     insert(&raiz, createNo(50));
     insert(&raiz, createNo(40));
     insert(&raiz, createNo(60));
-    insert(&raiz, createNo(10));
+    insert(&raiz, createNo(45));
     insert(&raiz, createNo(100));
 
     printar(raiz);
@@ -122,7 +134,7 @@ int main(void) {
     // printf("Encotrou %d\n", encontrou);
 
     // printar(endereco);
-    Remove(&raiz, 50);
+    Remove(&raiz, 40);
     // printar(endereco);
     printar(raiz);
     return 0;
