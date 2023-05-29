@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "imprimircurso.h": "c",
+        "inserirdisciplina.h": "c",
+        "imprimirdisciplina.h": "c",
+        "string.h": "c",
+        "stdio.h": "c",
+        "removercurso.h": "c",
+        "stdlib.h": "c",
+        "inserircurso.h": "c",
+        "curso.h": "c"
+    }
+}
