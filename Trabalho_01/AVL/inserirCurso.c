@@ -15,13 +15,11 @@ Curso *criarNoCurso(int codC, char nome[], int qtdBCurso, int semana){
     strcpy(raiz->nome, nome);
     raiz->qtdBCurso = qtdBCurso;
     raiz->semana = semana;
+    raiz->altura = 0;
     raiz->esq = raiz->dir = NULL;
     return raiz;
 }
 
-int maior(a, b){
-    
-}
 
 void inserirCurso(Curso **raiz, Curso *no){
     if(!(*raiz)){
@@ -31,4 +29,5 @@ void inserirCurso(Curso **raiz, Curso *no){
     }else if(no->codC > (**raiz).codC){
         inserirCurso(&((**raiz).dir), no);
     }
+    
 }

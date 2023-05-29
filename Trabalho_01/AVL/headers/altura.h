@@ -1,0 +1,1 @@
+int alturaArvore(Curso *raiz);

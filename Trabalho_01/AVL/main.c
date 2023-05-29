@@ -6,6 +6,7 @@
 #include "../headers/inserirDisciplina.h"
 #include "../headers/imprimirDisciplina.h"
 #include "../headers/removerCurso.h"
+#include "../headers/altura.h"
 
 
 
