@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/curso.h"
+#include "../headers/Avl.h"
 #include <string.h>
 
 Curso *criarCurso(){
@@ -17,6 +17,10 @@ Curso *criarNoCurso(int codC, char nome[], int qtdBCurso, int semana){
     raiz->semana = semana;
     raiz->esq = raiz->dir = NULL;
     return raiz;
+}
+
+int maior(a, b){
+    
 }
 
 void inserirCurso(Curso **raiz, Curso *no){

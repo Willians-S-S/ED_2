@@ -11,6 +11,7 @@ typedef struct Curso {
     char nome[70];
     int qtdBCurso;
     int semana;
+    int altura;
     Disciplina *disciplinas;
     struct Curso *esq, *dir;
 } Curso;

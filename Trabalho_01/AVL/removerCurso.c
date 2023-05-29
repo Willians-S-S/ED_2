@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/curso.h"
+#include "../headers/Avl.h"
 #include <string.h>
 #include "../headers/removerCurso.h"
 
@@ -71,3 +71,4 @@ int alturaArvore(Curso *raiz){
     }
     return (h);
 }
+

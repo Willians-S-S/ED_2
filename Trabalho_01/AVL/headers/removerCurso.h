@@ -7,3 +7,4 @@ Curso *enderecoFilho(Curso *raiz);
 void esq_filh(Curso **filho_recebe, Curso *filho_outro);
 
 int alturaArvore(Curso *raiz);
+

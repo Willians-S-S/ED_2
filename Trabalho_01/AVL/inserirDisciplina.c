@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./headers/curso.h"
+#include "./headers/Avl.h"
 #include "./headers/inserirDisciplina.h"
 #include <string.h>
 
