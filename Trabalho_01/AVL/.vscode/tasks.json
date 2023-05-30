@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc arquivo de build ativo",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-Igcc -I/home/will/Downloads/TEMP/TempCode/ED_II/ED_II/Trabalho_01/AVL/headers",
+                "Avl.c",
+                "inserirCurso.c",
+                "imprimirCurso.c",
+                "inserirDisciplina.c",
+                "imprimirDisciplina.c",
+                "removerCurso.c",
+                "altura.c",
+                "main.c",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarefa gerada pelo Depurador."
+        }
+    ],
+    "version": "2.0.0"
+}
