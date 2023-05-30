@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/Avl.h"
+#include "Avl.h"
 #include <string.h>
 
 

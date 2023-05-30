@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./headers/Avl.h"
-#include "./headers/inserirDisciplina.h"
+#include "Avl.h"
+#include "inserirDisciplina.h"
 #include <string.h>
 
 Disciplina *criarNoDisciplina(int codC, char nome[], int qtdBDisciplina, int cargHor){

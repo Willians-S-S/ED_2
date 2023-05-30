@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/Avl.h"
+#include "Avl.h"
 #include <string.h>
-#include "../headers/removerCurso.h"
+#include "removerCurso.h"
 
 void removerCurso(Curso **raiz, int codC) {
     Curso *aux;

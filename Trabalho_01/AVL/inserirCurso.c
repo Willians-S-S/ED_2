@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/Avl.h"
-#include "../headers/altura.h"
-#include "../headers/inserirCurso.h"
+#include "Avl.h"
+#include "altura.h"
+#include "inserirCurso.h"
 #include <string.h>
 
 Curso *criarCurso(){
@@ -23,7 +23,7 @@ Curso *criarNoCurso(int codC, char nome[], int qtdBCurso, int semana){
 }
 
 
-int inserirCurso(Curso **raiz, Curso *no){
+void inserirCurso(Curso **raiz, Curso *no){
     if (!(*raiz)){
         (*raiz) = no;
     }else if (no->codC < (**raiz).codC){
@@ -43,7 +43,7 @@ void balancear(Curso **raiz){
             rotacaoEsqueda(raiz);
         else if(fator > 1 && fb((*raiz)->dir) >= 0 )
             rotacaoDireita(raiz);
-        else if(fator < -1 && fb((*raiz)->dir) < 0 ){
+        else if(fator > 1 && fb((*raiz)->dir) < 0 ){
             rotacaoEsqueda(raiz);
             rotacaoDireita(raiz);
         }else if(fator < -1 && fb((*raiz)->dir) < 0 ){
@@ -55,7 +55,15 @@ void balancear(Curso **raiz){
 }
 
 int fb(Curso *no){
-    return (alturaArvore(no->esq) - alturaArvore(no->dir));
+
+    int tam;
+    if(no){
+        printf("Entetou 1\n");
+        tam = (alturaArvore(no->esq) - alturaArvore(no->dir));
+        printf("saindo, tam: %d\n", tam);
+    }else 
+        tam = 0;
+    return tam;
 }
 
 void rotacaoEsqueda(Curso **raiz){
@@ -70,7 +78,8 @@ void rotacaoEsqueda(Curso **raiz){
     (*raiz) = filhoDireito;
 
     (*raiz)->altura = alturaArvore(*raiz);
-    filhoDofilho_direito->altura = alturaArvore(filhoDofilho_direito); 
+    if(filhoDofilho_direito)
+        filhoDofilho_direito->altura = alturaArvore(filhoDofilho_direito); 
 }
 
 void rotacaoDireita(Curso **raiz){
@@ -79,11 +88,13 @@ void rotacaoDireita(Curso **raiz){
     filhoEsquerdo = (*raiz)->esq;
     filhoDofilho_Esquerdo = filhoEsquerdo->esq;
 
-    filhoEsquerdo->esq = (*raiz);
+    filhoEsquerdo->dir = (*raiz);
     (*raiz)->esq = filhoDofilho_Esquerdo;
 
     (*raiz) = filhoEsquerdo;
 
     (*raiz)->altura = alturaArvore(*raiz);
-    filhoDofilho_Esquerdo->altura = alturaArvore(filhoDofilho_Esquerdo); 
+    
+    if (filhoDofilho_Esquerdo)
+        filhoDofilho_Esquerdo->altura = alturaArvore(filhoDofilho_Esquerdo); 
 }

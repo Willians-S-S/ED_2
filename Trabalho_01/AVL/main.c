@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/Avl.h"
-#include "../headers/inserirCurso.h"
-#include "../headers/imprimirCurso.h"
-#include "../headers/inserirDisciplina.h"
-#include "../headers/imprimirDisciplina.h"
-#include "../headers/removerCurso.h"
-#include "../headers/altura.h"
+#include "Avl.h"
+#include "inserirCurso.h"
+#include "imprimirCurso.h"
+#include "inserirDisciplina.h"
+#include "imprimirDisciplina.h"
+#include "removerCurso.h"
+#include "altura.h"
 
 
 

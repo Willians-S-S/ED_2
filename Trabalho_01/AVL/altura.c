@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../headers/Avl.h"
+#include "Avl.h"
 #include <string.h>
-#include "../headers/altura.h"
+#include "altura.h"
 
 int alturaArvore(Curso *raiz){
     int he = -1, hd = -1, h;

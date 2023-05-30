@@ -1,5 +1,5 @@
 Curso *criarCurso();
-int inserirCurso(Curso **raiz, Curso *no);
+void inserirCurso(Curso **raiz, Curso *no);
 Curso *criarNoCurso(int codC, char nome[], int qtdBCurso, int semana); 
 int fb(Curso *no);
 
