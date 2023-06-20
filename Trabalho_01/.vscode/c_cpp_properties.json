@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/ArvoreBinaria/headers"
+                "${workspaceFolder}/ArvoreBinaria/headers",
+                "${workspaceFolder}/AVL/headers"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
@@ -16,6 +17,18 @@
             "name": "Caminhos adicionados",
             "includePath": [
                 "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64"
+        },
+        {
+            "name": "AVL",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/AVL/headers"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

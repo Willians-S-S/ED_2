@@ -1,8 +1,9 @@
 typedef struct Disciplina {
     int codD;
     char nome[50];
-    int qtdBDisciplina;
+    int bloco;
     int cargHor;
+    int altura;
     struct Disciplina *esq, *dir;
 } Disciplina;
 

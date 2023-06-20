@@ -7,15 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "-Igcc -I/home/will/Downloads/TEMP/TempCode/ED_II/ED_II/Trabalho_01/AVL/headers",
-                "Avl.c",
-                "inserirCurso.c",
-                "imprimirCurso.c",
-                "inserirDisciplina.c",
-                "imprimirDisciplina.c",
-                "removerCurso.c",
-                "altura.c",
-                "main.c",
+                "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
@@ -25,10 +17,7 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "detail": "Tarefa gerada pelo Depurador."
         }
     ],

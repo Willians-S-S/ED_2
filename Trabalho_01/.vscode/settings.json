@@ -8,6 +8,8 @@
         "removercurso.h": "c",
         "stdlib.h": "c",
         "inserircurso.h": "c",
-        "curso.h": "c"
-    }
+        "curso.h": "c",
+        "avl.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
